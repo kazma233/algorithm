@@ -6,11 +6,6 @@ package list
 //
 // https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 func reverseLinkedList(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
@@ -34,12 +29,6 @@ func reverseLinkedList(head *ListNode) *ListNode {
 	return reversedList
 }
 
-// 输入: 1->2->3->4->5->NULL
-// 一开始prev为NULL curr为1
-// 运行一次
-// 1 -> null，prev为1，curr为2
-// 运行二次
-// 2 -> 1 -> NULL prev为2，curr为3
 func reverseList2(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
@@ -49,9 +38,10 @@ func reverseList2(head *ListNode) *ListNode {
 
 	curr := head
 
-	// 当前与前一个交换：curr与prev交换
 	for curr != nil {
 		next := curr.Next
+
+		// 当前元素的指针指向上一个Node
 		curr.Next = prev
 
 		// 两个指针往后移动
